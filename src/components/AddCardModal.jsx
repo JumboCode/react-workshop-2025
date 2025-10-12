@@ -21,7 +21,12 @@ export default function AddCardModal({ onAddCard }) {
     // provide the new card data as an argument. Call onAddCard with the new card data here:
 
     // Clear the input fields after submission
-
+    if (answer == "" || question == "") {
+        return; 
+    }
+    onAddCard({question, answer})
+    setQuestion(""); 
+    setAnswer("");
   };
 
   return (
@@ -48,7 +53,13 @@ export default function AddCardModal({ onAddCard }) {
         />
 
         {/* Add a submit button to the form. Remember to call handleSubmit on click! */}
-
+        <button 
+  type="button" 
+  onClick={handleSubmit}
+  className="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
+>
+  Add Flashcard
+</button>
     </div>
   );
 }

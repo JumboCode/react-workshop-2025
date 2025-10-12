@@ -34,7 +34,7 @@ export default function FlashcardPage() {
     // a loop to copy all elements except the one at `index`.
 
     // Update the state with the new array
-
+    setCards(cards.filter((card, i) => i !== index))
   }
 
   function handleAddCard(newCard) {
@@ -44,6 +44,8 @@ export default function FlashcardPage() {
     // Create a new array that includes all existing cards plus the new card
 
     // Update the state with the new array
+    const newCards = cards.concat(newCard)
+    setCards(newCards)
 
   }
 
@@ -51,7 +53,7 @@ export default function FlashcardPage() {
     <div className="flex flex-col items-center m-5">
       {/* TODO: Add a title for the page here.
         * Hint: we have a PageTitle component we used in the last section */}
-
+        <PageTitle contents="Cool Flashcard Page!" />
       {
         // If there are no cards, display a message saying so
         cards.length === 0 ? (
